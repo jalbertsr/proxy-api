@@ -15,7 +15,7 @@ const options = {
 }
 
 if (TOKEN) {
-  options.headers.Authorization =  `Bearer ${TOKEN}`
+  options.headers.Authorization = `Bearer ${TOKEN}`
 }
 
 const cache = {}
