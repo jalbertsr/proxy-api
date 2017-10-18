@@ -1,19 +1,19 @@
-## API GiantBomb
+## API Proxy-Steam
 
-This repo contains the code for a proxy built to simplify the access to the API: [https://comicvine.gamespot.com](https://comicvine.gamespot.com)
+This repo contains the code for a proxy built to simplify the access to the APIs that have a CORS problem.
 
 ### Instructions
 
-To use this API you must use this URL 
+To use this API you must use this URL as a base url.
 
 ```
-https://api-comic-vine.herokuapp.com
+https://proxy-steam.herokuapp.com/
 ```
 
 instead of the original one
 
 ```
-https://comicvine.gamespot.com/api
+https://api.steampowered.com
 ```
 
 For example:
@@ -21,21 +21,32 @@ For example:
 Instead of: 
 
 ```
-https://comicvine.gamespot.com/api/characters/?api_key=<%API-KEY%>&format=json
+https://api.steampowered.com
 ```
 
 You must use
 
 ```
-https://api-comic-vine.herokuapp.com/characters/?api_key=<%API-KEY%>&format=json
+https://proxy-steam.herokuapp.com/
 ```
 
-Being `<%API-KEY%>` your own API Key needed to access this API (you must register first in the website [https://comicvine.gamespot.com/](https://comicvine.gamespot.com/))
+### Use this repo with any other API 
 
-#### More Examples
+Clone the repo and create a ```.env``` file with the following enviroment variables: 
 
 ```
-https://api-comic-vine.herokuapp.com/search/?api_key=<%API-KEY%>&format=json&query=superman
+URL_BASE=http://api.example.com/
+```
 
-https://api-comic-vine.herokuapp.com/teams/?api_key=<%API-KEY%>&format=json
+to run the server locally:
+
+```
+PORT=3000
+```
+
+if you need to configure a token in the headers request:
+
+```
+TOKEN=XXXXXXXXXXXXXX
+```
 
