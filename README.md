@@ -21,13 +21,13 @@ For example:
 Instead of: 
 
 ```
-https://api.steampowered.com
+https://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=XXXXXXXXXXX&vanityurl=jaxalbert
 ```
 
 You must use
 
 ```
-https://proxy-steam.herokuapp.com/
+https://proxy-steam.herokuapp.com/ISteamUser/ResolveVanityURL/v0001/?key=XXXXXXXXXXX&vanityurl=jaxalbert
 ```
 
 ### Use this repo with any other API 

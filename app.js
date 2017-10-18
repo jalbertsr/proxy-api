@@ -30,7 +30,6 @@ app.get('*', function (req, res) {
   console.log('path requested = ' + urlRequested)
   if (urlRequested.includes('favicon.ico')) {
     res.status(500).send("Couldn't get a JSON!")
-    return
   }
 
   options.url = URL_BASE + urlRequested
@@ -44,7 +43,7 @@ app.get('*', function (req, res) {
     console.log('🔥 requesting: ' + options.url)
     request(options, function (error, response, body) {
       if (error) res.status(500).send('Something went wrong!')
-      const json = JSON.parse(body.replace(/\\/g,''))
+      const json = JSON.parse(body.replace(/\\/g, ''))
       cache[options.url] = json
       res.json(json)
     })
