@@ -43,15 +43,9 @@ app.get('*', function (req, res) {
     console.log('🔥 requesting: ' + options.url)
     request(options, function (error, response, body) {
       if (error) res.status(500).send('Something went wrong!')
-      else {
-        try {
-          const json = JSON.parse(body)
-          cache[options.url] = json
-          res.json(json)
-        } catch (e) {
-          res.send('Error parsing JSON')
-        }
-      }
+      const json = JSON.parse(body)
+      cache[options.url] = json
+      res.json(json)
     })
   }
 })
