@@ -18,7 +18,6 @@ if (TOKEN) {
   options.headers.Authorization = `Bearer ${TOKEN}`
 }
 
-const cache = {}
 let counter = 0
 
 app.use(cors())
@@ -33,21 +32,12 @@ app.get('*', function (req, res) {
   }
 
   options.url = URL_BASE + urlRequested
-
-  console.log(options.url)
-
-  if (cache[options.url]) {
-    console.log('💾 from cache...')
-    res.json(cache[options.url])
-  } else {
-    console.log('🔥 requesting: ' + options.url)
-    request(options, function (error, response, body) {
-      if (error) res.status(500).send('Something went wrong!')
-      const json = JSON.parse(body)
-      cache[options.url] = json
-      res.json(json)
-    })
-  }
+  console.log('🔥 requesting: ' + options.url)
+  request(options, function (error, response, body) {
+    if (error) res.status(500).send('Something went wrong!')
+    const json = JSON.parse(body)
+    res.json(json)
+  })
 })
 
 app.listen(PORT, () => console.log(`listening on port ${PORT}...`))
