@@ -1,10 +1,12 @@
 ## API Proxy-Steam
 
-This repo contains the code for a proxy built to simplify the access to the APIs that have a CORS problem.
+This repo contains the code for a proxy built to simplify the access to the APIs that have CORS problem or APIs that give you a Bearer token you can't use in the client side for security reasons.
 
 ### Instructions
 
-To use this API you must use this URL as a base url.
+To use this repo you must deploy this node proxy and use your domain URL as a base url.
+
+For example:
 
 ```
 https://proxy-steam.herokuapp.com/
@@ -16,7 +18,7 @@ instead of the original one
 https://api.steampowered.com
 ```
 
-For example:
+Adding paths and queryparams:
 
 Instead of: 
 
@@ -30,7 +32,7 @@ You must use
 https://proxy-steam.herokuapp.com/ISteamUser/ResolveVanityURL/v0001/?key=XXXXXXXXXXX&vanityurl=jaxalbert
 ```
 
-### Use this repo with any other API 
+### Configure the environment variables file
 
 Clone the repo and create a ```.env``` file with the following enviroment variables: 
 
