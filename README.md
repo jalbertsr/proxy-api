@@ -1,4 +1,4 @@
-## API Proxy-Steam
+## API Proxy
 
 This repo contains the code for a proxy built to simplify the access to the APIs that have CORS problem or APIs that give you a Bearer token you can't use in the client side for security reasons.
 
